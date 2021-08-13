@@ -6,28 +6,30 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] Transform playerCamera = null;
-    CharacterController controller = null;
-
+    [SerializeField] float rbDrag = 6.0f;
     [SerializeField] float mouseSensitivity = 3.0f;
     [SerializeField] float walkSpeed = 6.0f;
-    [SerializeField] float gravity = -13.0f;
-
-    [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
+    [SerializeField] float moveMultiplier = 5.0f;
+ 
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
 
     private float cameraPitch = 0.0f;
-    private float velocityY = 0.0f;
+    private float horizontalMovement;
+    private float verticalMovement;
 
     [SerializeField] bool cursorLock = true;
-
-    Vector2 currentDir = Vector2.zero;
-    Vector2 currentDirVelocity = Vector2.zero;
 
     Vector2 currentMouseDelta = Vector2.zero;
     Vector2 currentMouseDeltaVelocity = Vector2.zero;
 
-    void Start(){
-        controller = GetComponent<CharacterController>();
+    Vector3 moveDirection;
+
+    Rigidbody rb;
+
+    private void Start(){
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+
         if (cursorLock){
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -35,12 +37,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update(){ 
-        
+    private void Update(){
+
+        MoveInput();
         UpdateCam();
-        UpdateMoveInput();
+        ControlDrag();
+
     }
-    void UpdateCam(){
+    private void UpdateCam(){
 
         Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
@@ -53,8 +57,29 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
     }
 
-    void UpdateMoveInput(){
+    void MoveInput(){
 
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        verticalMovement = Input.GetAxisRaw("Vertical");
+
+        moveDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
+
+    }
+
+    private void FixedUpdate(){
+        rb.AddForce(moveDirection.normalized * walkSpeed * moveMultiplier, ForceMode.Acceleration);
+    }
+
+    void ControlDrag(){
+
+        rb.drag = rbDrag;
+    }
+
+    /*
+    # Movement using CharacterController
+
+    void UpdateMoveInput(){
+        
         Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
 
@@ -70,5 +95,6 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * walkSpeed + Vector3.up * velocityY;
 
         controller.Move(velocity * Time.deltaTime);
-    }
+    }*/
+
 }
