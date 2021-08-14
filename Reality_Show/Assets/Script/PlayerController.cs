@@ -75,26 +75,4 @@ public class PlayerController : MonoBehaviour
         rb.drag = rbDrag;
     }
 
-    /*
-    # Movement using CharacterController
-
-    void UpdateMoveInput(){
-        
-        Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        targetDir.Normalize();
-
-        currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
-
-        if (controller.isGrounded){
-
-            velocityY = 0.0f;
-        }
-            
-        velocityY += gravity * Time.deltaTime;
-
-        Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * walkSpeed + Vector3.up * velocityY;
-
-        controller.Move(velocity * Time.deltaTime);
-    }*/
-
 }
