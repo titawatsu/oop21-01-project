@@ -5,17 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
-  - Interact
+  - PickableObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
   - 
-  - 
+  - InteractRaycast
   - 
   - 
   - 

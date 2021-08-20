@@ -1,15 +1,23 @@
-https://assetstore.unity.com/packages/2d/textures-materials/wood/woodtile-textures-pack-30049
-
-https://assetstore.unity.com/packages/3d/simple-home-stuff-69129
-
 https://assetstore.unity.com/packages/3d/prototyping-pack-free-94277
-
-https://freepbr.com/materials/concrete-3-pbr-material/
-
-https://freepbr.com/materials/flat-patchy-cement-pbr-material/
-
-https://assetstore.unity.com/packages/3d/props/interior/door-free-pack-aferar-148411
 
 https://kenney.nl/assets/crosshair-pack
 
-https://vrcmods.com/item/9392
+https://assetstore.unity.com/packages/3d/props/electronics/flashlight-18972
+
+https://assetstore.unity.com/packages/2d/textures-materials/sky/urban-night-sky-134468
+
+https://assetstore.unity.com/packages/3d/props/free-suburban-structure-kit-142401
+
+https://assetstore.unity.com/packages/3d/environments/urban/furnished-cabin-71426
+
+https://assetstore.unity.com/packages/3d/vegetation/trees/hq-autumn-dry-maple-trees-93117
+
+https://assetstore.unity.com/packages/3d/props/exterior/mountain-creek-23017
+
+https://assetstore.unity.com/packages/3d/vehicles/land/pickup-model-135387
+
+https://assetstore.unity.com/packages/3d/props/interior/simple-garage-197251
+
+https://assetstore.unity.com/packages/2d/textures-materials/floors/vis-pbr-grass-textures-198071
+
+https://assetstore.unity.com/packages/3d/characters/base-man-133457
