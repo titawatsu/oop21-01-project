@@ -21,3 +21,5 @@ https://assetstore.unity.com/packages/3d/props/interior/simple-garage-197251
 https://assetstore.unity.com/packages/2d/textures-materials/floors/vis-pbr-grass-textures-198071
 
 https://assetstore.unity.com/packages/3d/characters/base-man-133457
+
+https://assetstore.unity.com/packages/3d/props/electronics/tv-set-26193
