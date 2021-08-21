@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - PickableObject
+  - Item
   layers:
   - Default
   - TransparentFX
