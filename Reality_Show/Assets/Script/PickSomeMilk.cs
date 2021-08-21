@@ -12,12 +12,14 @@ public class PickSomeMilk : MonoBehaviour
     private RaycastHit hit;
     public GameObject UiPickUpObj;
 
+
     void Start()
     {
         UiPickUpObj.SetActive(false);
+   
     }
 
-
+    
     void Update()
     {
         if (Physics.Raycast(TransformCamera.position, TransformCamera.forward, out hit, distanceRange, RayMask))
@@ -27,20 +29,48 @@ public class PickSomeMilk : MonoBehaviour
             {
                 UiPickUpObj.SetActive(true);
                 StartCoroutine("WaitForSec");
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Vector3.Distance(TransformCamera.position, transform.position) <= distanceRange)
                 {
-                    Destroy(this.gameObject);
-                    
-                    UiPickUpObj.SetActive(false);
-                    ScoreManager.instance.AddScore();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        Destroy(gameObject);
+
+                        UiPickUpObj.SetActive(false);
+                        ScoreManager.instance.AddScore();
+                    }
                 }
             }
         }
     }
+    
+    /*
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            UiPickUpObj.SetActive(true);
+            StartCoroutine("WaitForSec");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Destroy(gameObject);
 
+                UiPickUpObj.SetActive(false);
+                ScoreManager.instance.AddScore();
+            }
+        }
+    }*/
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(1);
         UiPickUpObj.SetActive(false);
     }
+    /*
+    void DestroyWithTag(string destroyTag)
+    {
+        GameObject[] destroyObject;
+        destroyObject = GameObject.FindGameObjectsWithTag(destroyTag);
+        foreach (GameObject oneObject in destroyObject)
+            Destroy(oneObject);
+    }
+    */
 }
